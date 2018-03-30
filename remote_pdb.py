@@ -13,7 +13,7 @@ __version__ = "1.2.0"
 PY3 = sys.version_info[0] == 3
 
 
-def cry(message, stderr=sys.__stderr__):
+def cry(message, stderr=sys.stdout):
     logging.critical(message)
     print(message, file=stderr)
     stderr.flush()
@@ -65,13 +65,12 @@ class RemotePdb(Pdb):
     active_instance = None
 
     def __init__(self, host, port, patch_stdstreams=False):
-        listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
-        listen_socket.bind((host, port))
-        cry("RemotePdb session open at %s:%s, waiting for connection ..." % listen_socket.getsockname())
-        listen_socket.listen(1)
-        connection, address = listen_socket.accept()
-        cry("RemotePdb accepted connection from %s." % repr(address))
+        connect_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # connect_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+        connect_socket.connect((host, port))
+        connection = connect_socket
+        cry("RemotePdb session open at %s:%s, waiting for connection ..." % connect_socket.getsockname())
+        cry("RemotePdb accepted connection...")
         if PY3:
             self.handle = LF2CRLF_FileWrapper(connection.makefile('rw'))
         else:
