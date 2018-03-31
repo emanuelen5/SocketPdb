@@ -1,5 +1,5 @@
 # Debugging a Sublime text plugin using sockets
-The module is based on [remote_pdb](https://github.com/ionelmc/python-remote-pdb)
+The module is based on [remote_pdb](https://github.com/ionelmc/python-remote-pdb). Another similar module is [rpdb](https://github.com/tamentis/rpdb).
 
 ## How to use
 Import the module into your plugin:
