@@ -5,7 +5,7 @@ The module is based on [remote_pdb](https://github.com/ionelmc/python-remote-pdb
 Import the module into your plugin:
 
 ```python
-from remote_pdb import RemotePdb
+from socket_pdb import SocketPdb
 ```
 
 Set up a virtual terminal with a raw TCP connection, e.g.
@@ -17,5 +17,5 @@ nc -k -l <PORT>
 Stop execution in the Python script and invoke the remote debugger:
 
 ```python
-RemotePdb(host="localhost", port=<PORT>).set_trace()
+SocketPdb(host="localhost", port=<PORT>).set_trace()
 ```
