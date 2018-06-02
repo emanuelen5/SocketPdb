@@ -1,4 +1,6 @@
 # SocketPdb
+[![Build Status](https://travis-ci.org/emanuelen5/SocketPdb.svg?branch=master)](https://travis-ci.org/emanuelen5/SocketPdb)
+
 ## Debugging a Python plugin over a TCP socket
 This module is intended for debugging a Python application when stdin/stdout are not accessible. It was initially created for debugging Sublime text plugins, but can be used for any script.
 
