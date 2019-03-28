@@ -2,7 +2,7 @@ import socket
 import sys
 from pdb import Pdb
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 is_python_3 = sys.version_info[0] == 3
 
 class SocketPdb(Pdb):

@@ -20,5 +20,10 @@ SocketPdb(host="localhost", port=4444).set_trace()
 
 The host (*localhost*) and port number (`4444`) can be set to whatever fits your setup.
 
+## Install
+```bash
+python setup.py install
+```
+
 ## Acknowledgement
 The module is initially inspired by and based on [remote_pdb](https://github.com/ionelmc/python-remote-pdb)
