@@ -5,10 +5,10 @@
 This module is intended for debugging a Python application when stdin/stdout are not accessible. It was initially created for debugging Sublime text plugins, but can be used for any script.
 
 ## How to use
-Set up a TCP server socket in a terminal, e.g. with *netcat*:
+Set up a TCP server socket in a terminal, e.g. with *netcat* (for setting up a TCP TTY server) together with *rlwrap* (for command history):
 
 ```bash
-nc -k -l 4444
+rlwrap nc -k -l 4444
 ```
 
 Import the module into your Python script and invoke the remote debugger:
